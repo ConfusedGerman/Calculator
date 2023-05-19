@@ -1,6 +1,36 @@
 #calculator {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     max-height: 740px;
     max-width: 360px;
+}
+#display {
+    background-color: aliceblue;
+    height: 240px;
+    width: 360px;
+}
+#buttons {
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.number,
+.operator,
+.function {
+    width: 25%;
+    background: #f1f3f4;
+    color: #202124;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
