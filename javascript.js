@@ -17,3 +17,18 @@ function divide(a, b) {
 let numberOne;
 let numberTwo;
 let operator;
+
+function operate(numberOne, numberTwo, operator) {
+    if (operator === "+") {
+        return add(numberOne, numberTwo);
+    }
+    else if(operator === "-") {
+        return subtract(numberOne, numberTwo);
+    }
+    else if(operator === "*") {
+        return multiply(numberOne, numberTwo);
+    }
+    else if(operator === "/") {
+        return divide(numberOne, numberTwo);
+    }
+}
