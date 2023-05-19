@@ -17,13 +17,18 @@
     align-items: stretch;
 }
 
-.number,
-.operator,
-.function {
+button {
     width: 25%;
     background: #f1f3f4;
     color: #202124;
     border: 1px solid #f1f3f4;
+    border-radius: 4px;
+}
+
+.operator,
+.function {
+    background-color: #d5c053;
+    border: 1px solid #d5c053;
     border-radius: 4px;
 }
 
