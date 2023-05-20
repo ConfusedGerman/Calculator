@@ -57,6 +57,12 @@ function chooseOperator() {
     operators.forEach((operator) => {
         operator.addEventListener('click', () => {
             //TODO: What if operator clicked is =?
+            if (operator.textContent === '=') {
+                const convertFirstNumber = Number(numberOne);
+                const convertSecondNumber = Number(numberTwo);
+                let result = calculate(convertFirstNumber, convertSecondNumber);
+                content.textContent = result;
+            }
             if (!operatorClicked) {
                 choosenOperator += operator.textContent;
                 content.textContent += choosenOperator;
@@ -64,4 +70,22 @@ function chooseOperator() {
             }
         });
     });
+}
+
+function calculate(number1, number2) {
+    switch(choosenOperator) {
+        case '+':
+            result = number1 + number2;
+            break;
+        case '-':
+            result = number1 - number2;
+            break;
+        case '*':
+            result = number1 * number2;
+            break;
+        case '/':
+            result = number1 / number2;
+            break;
+    }
+    return result;
 }
