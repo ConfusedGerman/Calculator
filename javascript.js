@@ -14,9 +14,9 @@ function divide(a, b) {
     return a / b;
 }
 
-let numberOne;
-let numberTwo;
-let operator;
+let numberOne = '';
+let numberTwo = '';
+let operator = '';
 
 function operate(numberOne, numberTwo, operator) {
     if (operator === "+") {
@@ -36,9 +36,11 @@ function operate(numberOne, numberTwo, operator) {
 
 //Get input from buttons
 const buttons = document.querySelectorAll('.number');
+let content = document.querySelector('#content');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         numberOne += button.textContent;
+        content.textContent = numberOne;
         console.log(numberOne);
     });
 });
