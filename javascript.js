@@ -58,11 +58,6 @@ function chooseOperator() {
         operator.addEventListener('click', () => {
             //TODO: What if operator clicked is =?
             if (operator.textContent === '=') {
-                //check for second number
-                if(numberTwo === '') {
-                    resetVariables();
-                    //TODO: Go back to start of chooseOperator
-                }
                 const convertFirstNumber = Number(numberOne);
                 const convertSecondNumber = Number(numberTwo);
                 let result = calculate(convertFirstNumber, convertSecondNumber);
