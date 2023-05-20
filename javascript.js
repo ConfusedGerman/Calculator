@@ -18,6 +18,7 @@ let numberOne = '';
 let numberTwo = '';
 let choosenOperator = '';
 let operatorClicked = false;
+let storeLastResult = 0;
 
 function operate(numberOne, numberTwo, operator) {
     if (operator === "+") {
@@ -43,7 +44,6 @@ buttons.forEach((button) => {
         if (!operatorClicked) {
             numberOne += button.textContent;
             content.textContent += button.textContent;
-            chooseOperator();
         }
         else {
             numberTwo += button.textContent;
@@ -58,10 +58,16 @@ function chooseOperator() {
         operator.addEventListener('click', () => {
             //TODO: What if operator clicked is =?
             if (operator.textContent === '=') {
+                //check for second number
+                if(numberTwo === '') {
+                    resetVariables();
+                    //TODO: Go back to start of chooseOperator
+                }
                 const convertFirstNumber = Number(numberOne);
                 const convertSecondNumber = Number(numberTwo);
                 let result = calculate(convertFirstNumber, convertSecondNumber);
                 content.textContent = result;
+                return;
             }
             if (!operatorClicked) {
                 choosenOperator += operator.textContent;
@@ -73,19 +79,25 @@ function chooseOperator() {
 }
 
 function calculate(number1, number2) {
-    switch(choosenOperator) {
-        case '+':
-            result = number1 + number2;
-            break;
-        case '-':
-            result = number1 - number2;
-            break;
-        case '*':
-            result = number1 * number2;
-            break;
-        case '/':
-            result = number1 / number2;
-            break;
-    }
+    let result = operate(number1, number2, choosenOperator);
+    storeLastResult = result;
+    resetVariables();
     return result;
 }
+
+//When button clear is clicked reset all variables
+function resetVariables() {
+    numberOne = '';
+    numberTwo = '';
+    choosenOperator = '';
+    operatorClicked = false;
+    content.textContent = '';
+}
+
+chooseOperator();
+
+const clear = document.querySelector('.function');
+clear.addEventListener('click', () => {
+    storeLastResult = Number(content.textContent);
+    resetVariables();
+});
