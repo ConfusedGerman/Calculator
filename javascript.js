@@ -41,6 +41,5 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         numberOne += button.textContent;
         content.textContent = numberOne;
-        console.log(numberOne);
     });
 });
