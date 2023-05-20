@@ -66,6 +66,8 @@ function chooseOperator() {
                 const convertFirstNumber = Number(numberOne);
                 const convertSecondNumber = Number(numberTwo);
                 let result = calculate(convertFirstNumber, convertSecondNumber);
+                //store result for further operations
+                storeLastResult = Number(content.textContent);
                 content.textContent = result;
                 return;
             }
@@ -98,6 +100,5 @@ chooseOperator();
 
 const clear = document.querySelector('.function');
 clear.addEventListener('click', () => {
-    storeLastResult = Number(content.textContent);
     resetVariables();
 });
