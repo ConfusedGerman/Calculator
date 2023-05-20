@@ -34,15 +34,15 @@ function operate(numberOne, numberTwo, operator) {
 
 // Get input from buttons
 const buttons = document.querySelectorAll('.number');
-let content = document.querySelector('#content');
+let display = document.querySelector('#display');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (!operatorClicked) {
             numberOne += button.textContent;
-            content.textContent += button.textContent;
+            display.textContent += button.textContent;
         } else {
             numberTwo += button.textContent;
-            content.textContent += button.textContent;
+            display.textContent += button.textContent;
         }
     });
 });
@@ -52,6 +52,7 @@ function chooseOperator() {
     operators.forEach((operator) => {
         operator.addEventListener('click', () => {
             if (operator.textContent === '=') {
+                //Reset if no second number is given
                 if (numberTwo === '') {
                     resetVariables();
                     return;
@@ -60,7 +61,7 @@ function chooseOperator() {
                 const convertSecondNumber = Number(numberTwo);
                 let result = calculate(convertFirstNumber, convertSecondNumber);
                 storeLastResult = result;
-                content.textContent = result;
+                display.textContent = result;
                 numberOne = result.toString();
                 numberTwo = '';
                 chosenOperator = '';
@@ -69,7 +70,7 @@ function chooseOperator() {
             }
             if (!operatorClicked) {
                 chosenOperator = operator.textContent;
-                content.textContent += chosenOperator;
+                display.textContent += chosenOperator;
                 operatorClicked = true;
             }
         });
@@ -86,7 +87,7 @@ function resetVariables() {
     numberTwo = '';
     chosenOperator = '';
     operatorClicked = false;
-    content.textContent = '';
+    display.textContent = '';
 }
 
 chooseOperator();
