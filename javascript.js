@@ -16,7 +16,8 @@ function divide(a, b) {
 
 let numberOne = '';
 let numberTwo = '';
-let operator = '';
+let choosenOperator = '';
+let operatorClicked = false;
 
 function operate(numberOne, numberTwo, operator) {
     if (operator === "+") {
@@ -39,7 +40,24 @@ const buttons = document.querySelectorAll('.number');
 let content = document.querySelector('#content');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        numberOne += button.textContent;
-        content.textContent = numberOne;
+        if (!operatorClicked) {
+            numberOne += button.textContent;
+            content.textContent = numberOne;
+            chooseOperator();
+        }
     });
 });
+
+function chooseOperator() {
+    const operators = document.querySelectorAll('.operator');
+    operators.forEach((operator) => {
+        operator.addEventListener('click', () => {
+            //TODO: What if operator clicked is =?
+            if (!operatorClicked) {
+                choosenOperator += operator.textContent;
+                content.textContent += choosenOperator;
+                operatorClicked = true;
+            }
+        });
+    });
+}
