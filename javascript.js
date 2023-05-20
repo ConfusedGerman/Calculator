@@ -32,3 +32,13 @@ function operate(numberOne, numberTwo, operator) {
         return divide(numberOne, numberTwo);
     }
 }
+
+
+//Get input from buttons
+const buttons = document.querySelectorAll('.number');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        numberOne += button.textContent;
+        console.log(numberOne);
+    });
+});
