@@ -67,7 +67,6 @@ function chooseOperator() {
 
 function calculate(number1, number2) {
     let result = operate(number1, number2, choosenOperator);
-    storeLastResult = result;
     resetVariables();
     return result;
 }
