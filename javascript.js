@@ -35,7 +35,6 @@ function operate(numberOne, numberTwo, operator) {
     }
 }
 
-
 //Get input from buttons
 const buttons = document.querySelectorAll('.number');
 let content = document.querySelector('#content');
@@ -80,14 +79,10 @@ function resetVariables() {
     content.textContent = '';
 }
 
-chooseOperator();
-
 const clear = document.querySelector('.function');
 clear.addEventListener('click', () => {
     resetVariables();
 });
-
-
 
 function equalSign() {
     const equal = document.querySelector('#equalSign');
@@ -103,4 +98,6 @@ function equalSign() {
         content.textContent = result;
     });
 }
+
+chooseOperator();
 equalSign();
