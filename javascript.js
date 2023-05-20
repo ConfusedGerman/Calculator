@@ -56,16 +56,6 @@ function chooseOperator() {
     const operators = document.querySelectorAll('.operator');
     operators.forEach((operator) => {
         operator.addEventListener('click', () => {
-            //TODO: What if operator clicked is =?
-            if (operator.textContent === '=') {
-                const convertFirstNumber = Number(numberOne);
-                const convertSecondNumber = Number(numberTwo);
-                let result = calculate(convertFirstNumber, convertSecondNumber);
-                //store result for further operations
-                storeLastResult = Number(content.textContent);
-                content.textContent = result;
-                return;
-            }
             if (!operatorClicked) {
                 choosenOperator += operator.textContent;
                 content.textContent += choosenOperator;
@@ -97,3 +87,21 @@ const clear = document.querySelector('.function');
 clear.addEventListener('click', () => {
     resetVariables();
 });
+
+
+
+function equalSign() {
+    const equal = document.querySelector('#equalSign');
+    equal.addEventListener('click', () => {
+        if (numberTwo === '') {
+            numberTwo = 0;
+        }
+        const firstNumberInteger = Number(numberOne);
+        const secondNumberInteger = Number(numberTwo);
+        let result = calculate(firstNumberInteger, secondNumberInteger);
+        //store result for future operations
+        storeLastResult = result;
+        content.textContent = result;
+    });
+}
+equalSign();
