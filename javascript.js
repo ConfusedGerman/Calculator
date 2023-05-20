@@ -42,8 +42,12 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (!operatorClicked) {
             numberOne += button.textContent;
-            content.textContent = numberOne;
+            content.textContent += button.textContent;
             chooseOperator();
+        }
+        else {
+            numberTwo += button.textContent;
+            content.textContent += button.textContent;
         }
     });
 });
