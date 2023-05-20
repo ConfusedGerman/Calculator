@@ -4,6 +4,7 @@
     flex-direction: column;
     max-height: 740px;
     max-width: 360px;
+    background-color: #f1f3f4;
 }
 #display {
     display: flex;
