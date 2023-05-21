@@ -18,6 +18,11 @@
     font-size: 24px;
     padding: 10px 10px;
 }
+
+.span {
+    flex: 1 0 auto;
+}
+
 #buttons {
     height: 400px;
     display: flex;
