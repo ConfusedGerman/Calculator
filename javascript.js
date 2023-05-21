@@ -19,6 +19,7 @@ let numberTwo = '';
 let chosenOperator = '';
 let operatorClicked = false;
 let storeLastResult = 0;
+let allowSecondNumber = true;
 
 function operate(numberOne, numberTwo, operator) {
     if (operator === "+") {
@@ -37,12 +38,15 @@ const buttons = document.querySelectorAll('.number');
 let display = document.querySelector('#display');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (!operatorClicked) {
-            numberOne += button.textContent;
-            display.textContent += button.textContent;
-        } else {
-            numberTwo += button.textContent;
-            display.textContent += button.textContent;
+        //If is only relevant after first result
+        if (allowSecondNumber === true) {
+            if (!operatorClicked) {
+                numberOne += button.textContent;
+                display.textContent += button.textContent;
+            } else {
+                numberTwo += button.textContent;
+                display.textContent += button.textContent;
+            }
         }
     });
 });
@@ -65,6 +69,8 @@ function chooseOperator() {
                 numberOne = result.toString();
                 numberTwo = '';
                 chosenOperator = '';
+                //Only allow another number when a operator is clicked because numberOne already exists
+                allowSecondNumber = false;
                 operatorClicked = false;
                 return;
             }
@@ -72,6 +78,7 @@ function chooseOperator() {
                 chosenOperator = operator.textContent;
                 display.textContent += chosenOperator;
                 operatorClicked = true;
+                allowSecondNumber = true;
             }
         });
     });
@@ -87,6 +94,7 @@ function resetVariables() {
     numberTwo = '';
     chosenOperator = '';
     operatorClicked = false;
+    allowSecondNumber = true;
     display.textContent = '';
 }
 
