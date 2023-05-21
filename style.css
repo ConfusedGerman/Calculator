@@ -2,7 +2,7 @@
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    max-height: 740px;
+    height: auto;
     max-width: 360px;
     background-color: #f1f3f4;
     border: 10px solid black;
@@ -12,12 +12,13 @@
     display: flex;
     flex-wrap: wrap;
     background-color: #e6e6e6;
-    height: 240px;
+    min-height: 140px;
+    max-height: 240px;
     width: 360px;
     font-size: 24px;
 }
 #buttons {
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
