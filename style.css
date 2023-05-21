@@ -5,6 +5,8 @@
     max-height: 740px;
     max-width: 360px;
     background-color: #f1f3f4;
+    border: 10px solid black;
+    border-radius: 1%;
 }
 #display {
     display: flex;
