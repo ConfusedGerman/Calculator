@@ -35,7 +35,7 @@ function operate(numberOne, numberTwo, operator) {
 
 // Get input from buttons
 const buttons = document.querySelectorAll('.number');
-let display = document.querySelector('#display');
+let display = document.querySelector('.flex-item');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         //If is only relevant after first result
